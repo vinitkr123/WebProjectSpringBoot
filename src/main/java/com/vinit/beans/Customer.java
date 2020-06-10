@@ -8,4 +8,5 @@ public class Customer {
 
 	@Autowired
 	private Address customerAddress;
+	
 }
