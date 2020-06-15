@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import com.vinit.beans.Product;
-import com.vinit.exceptions.ProductNotFoundException;
 
 @Service
 public interface ProductService {
@@ -21,5 +20,5 @@ public interface ProductService {
 
 	public Optional<Product> updateProductById(int id);
 	
-	public Product addProduct(Product product) throws ProductNotFoundException;
+	public List<Product> addProduct(Product product);
 }

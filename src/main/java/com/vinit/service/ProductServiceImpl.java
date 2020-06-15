@@ -6,13 +6,16 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 
 import com.vinit.beans.Product;
+import com.vinit.beans.ProductMongo;
 import com.vinit.exceptions.ProductNotFoundException;
 import com.vinit.repository.ProductRepository;
 
 @Service
-public class ProductServiceImpl implements ProductService{
+@ControllerAdvice
+public class ProductServiceImpl implements ProductService {
 
 	@Autowired
 	private ProductRepository productRepository;
@@ -24,7 +27,7 @@ public class ProductServiceImpl implements ProductService{
 
 	@Override
 	public List<Product> findProductListById(int id) {
-		
+
 		return null;
 	}
 
@@ -40,20 +43,15 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Override
-	public Product addProduct(Product product) throws ProductNotFoundException {
-		if(!StringUtils.isEmpty(product))
-			return productRepository.save(product);
-		else
-			throw new ProductNotFoundException("No Product to add");
+	public List<Product> addProduct(Product product) {
+			productRepository.save(product);
+			return productRepository.findAll();
+			
 	}
 
 	@Override
 	public void deleteAllProducts() {
 		productRepository.deleteAll();
 	}
-	
-	
-	
-	
-	
+
 }
