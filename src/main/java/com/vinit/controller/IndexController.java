@@ -13,5 +13,11 @@ public class IndexController {
 		model.addAttribute("message","Hello from controller");
 		return "index";
 	}
+	@GetMapping(value= "/login")
+	public String loginSucsess(Model model)
+	{
+		model.addAttribute("message","Hello from controller");
+		return "login";
+	}
 	
 }

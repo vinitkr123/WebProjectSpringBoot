@@ -5,12 +5,9 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 
-import com.vinit.beans.Product;
 import com.vinit.mongo.beans.ProductMongo;
 import com.vinit.mongorepository.ProductMongoRepository;
-import com.vinit.repository.ProductRepository;
 
 @Service
 public class ProductMongoServiceImpl implements ProductMongoService{
@@ -26,9 +23,9 @@ public class ProductMongoServiceImpl implements ProductMongoService{
 	}
 
 	@Override
-	public List<ProductMongo> findProductListById(int id) {
+	public List<ProductMongo> findProductList() {
 
-		return null;
+		return productMongoRepository.findAll();
 	}
 
 	@Override
@@ -43,8 +40,8 @@ public class ProductMongoServiceImpl implements ProductMongoService{
 	}
 
 	@Override
-	public List<ProductMongo> addProduct(ProductMongo productMongo) {
-			productMongoRepository.save(productMongo);
+	public List<ProductMongo> addProduct(List<ProductMongo> productMongo) {
+			productMongoRepository.saveAll(productMongo);
 			return productMongoRepository.findAll();
 			
 	}

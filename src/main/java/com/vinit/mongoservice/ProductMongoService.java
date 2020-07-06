@@ -12,7 +12,7 @@ public interface ProductMongoService {
 
 	public Optional<ProductMongo> findProductById(int id);
 
-	public List<ProductMongo> findProductListById(int id);
+	public List<ProductMongo> findProductList();
 
 	public void deleteProductById(int id);
 	
@@ -20,5 +20,5 @@ public interface ProductMongoService {
 
 	public Optional<ProductMongo> updateProductById(int id);
 	
-	public List<ProductMongo> addProduct(ProductMongo productMongo);
+	public List<ProductMongo> addProduct(List<ProductMongo> productMongo);
 }
