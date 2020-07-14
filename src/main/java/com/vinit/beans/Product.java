@@ -5,8 +5,17 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Entity
-@Table(name = "Product")
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Table
 public class Product {
 	
 	@Id

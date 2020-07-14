@@ -15,6 +15,9 @@ public class ProductMongoServiceImpl implements ProductMongoService{
 	@Autowired
 	private ProductMongoRepository productMongoRepository;
 
+	@Autowired
+	private ProductMongo productMongo;
+
 	@Override 
 	public Optional<ProductMongo> findProductById(int id) 
 	{
@@ -24,7 +27,6 @@ public class ProductMongoServiceImpl implements ProductMongoService{
 
 	@Override
 	public List<ProductMongo> findProductList() {
-
 		return productMongoRepository.findAll();
 	}
 

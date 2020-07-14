@@ -4,34 +4,32 @@ import javax.persistence.Column;
 import javax.persistence.Id;
 
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.stereotype.Component;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
-@Document(collection = "ProductCollection")
 @Data
-@Builder(toBuilder = true)
-@ToString
-@AllArgsConstructor(access = AccessLevel.PUBLIC)
-@NoArgsConstructor(access = AccessLevel.PUBLIC)
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Component
+@Document(collection = "ProductCollection")
 public class ProductMongo {
-	
 	
 	@Id
 	private int Id;
 	@Column
-	private String ProductName;
+	private String productName;
 	@Column
 	private String productDesc;	
 	@Column
 	private String productPrice;
 	@Column
-	private String productCategory;	
-	
-	
+	private String productCategory;
 	
 }
